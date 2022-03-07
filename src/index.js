@@ -72,7 +72,7 @@ const Main = (props) => {
                     <CryptoTool />
                 </Col>
             </Row>
-        </Container>
+        </Container> 
     );
 };
 
