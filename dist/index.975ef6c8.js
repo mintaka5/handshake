@@ -1011,223 +1011,68 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _reactBootstrap = require("react-bootstrap");
-var _crypto = require("crypto");
-var _cryptoDefault = parcelHelpers.interopDefault(_crypto);
-var _s = $RefreshSig$();
-const CryptoTool = (props)=>{
-    _s();
-    const [randomString, setRandomString] = _react.useState();
-    const [byteLength, setByteLength] = _react.useState(4);
-    _react.useEffect(()=>{
-        _cryptoDefault.default.randomBytes(byteLength, (err, buf)=>{
-            setRandomString(buf.toString('hex'));
-        });
-    }, []);
-    const clickGenRandomString = (e)=>{
-        console.log("byte length: " + byteLength);
-        _cryptoDefault.default.randomBytes(byteLength, (err, buf)=>{
-            setRandomString(buf.toString('hex'));
-        });
-    };
-    const onSelectBytLength = (e)=>{
-        setByteLength(parseInt(e.target.value));
-    };
-    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
+var _randomstringtool = require("./elements/randomstringtool");
+var _randomstringtoolDefault = parcelHelpers.interopDefault(_randomstringtool);
+var _signthings = require("./elements/signthings");
+var _signthingsDefault = parcelHelpers.interopDefault(_signthings);
+const Main = (props)=>{
+    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
             children: [
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
-                    children: "random string generator"
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
+                    lg: 4,
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_randomstringtoolDefault.default, {
+                    }, void 0, false, {
+                        fileName: "src/index.js",
+                        lineNumber: 12,
+                        columnNumber: 21
+                    }, undefined)
                 }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 29,
+                    lineNumber: 11,
                     columnNumber: 17
                 }, undefined),
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Stack, {
-                    direction: "vertical",
-                    gap: 5,
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Table, {
-                            striped: true,
-                            hover: true,
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("tbody", {
-                                children: [
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("tr", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("th", {
-                                                children: "byte len."
-                                            }, void 0, false, {
-                                                fileName: "src/index.js",
-                                                lineNumber: 35,
-                                                columnNumber: 33
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("td", {
-                                                children: byteLength
-                                            }, void 0, false, {
-                                                fileName: "src/index.js",
-                                                lineNumber: 36,
-                                                columnNumber: 33
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/index.js",
-                                        lineNumber: 34,
-                                        columnNumber: 29
-                                    }, undefined),
-                                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV("tr", {
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("th", {
-                                                children: "random str."
-                                            }, void 0, false, {
-                                                fileName: "src/index.js",
-                                                lineNumber: 39,
-                                                columnNumber: 33
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("td", {
-                                                children: randomString
-                                            }, void 0, false, {
-                                                fileName: "src/index.js",
-                                                lineNumber: 40,
-                                                columnNumber: 33
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/index.js",
-                                        lineNumber: 38,
-                                        columnNumber: 29
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/index.js",
-                                lineNumber: 33,
-                                columnNumber: 25
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "src/index.js",
-                            lineNumber: 32,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
-                            children: [
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
-                                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Select, {
-                                        onChange: onSelectBytLength,
-                                        "aria-label": "# bytes",
-                                        children: [
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("option", {
-                                                value: 4,
-                                                children: "4"
-                                            }, void 0, false, {
-                                                fileName: "src/index.js",
-                                                lineNumber: 47,
-                                                columnNumber: 33
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("option", {
-                                                value: 8,
-                                                children: "8"
-                                            }, void 0, false, {
-                                                fileName: "src/index.js",
-                                                lineNumber: 48,
-                                                columnNumber: 33
-                                            }, undefined),
-                                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV("option", {
-                                                value: 16,
-                                                children: "16"
-                                            }, void 0, false, {
-                                                fileName: "src/index.js",
-                                                lineNumber: 49,
-                                                columnNumber: 33
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/index.js",
-                                        lineNumber: 46,
-                                        columnNumber: 29
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/index.js",
-                                    lineNumber: 45,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "primary",
-                                    type: "button",
-                                    onClick: clickGenRandomString,
-                                    children: "Random String"
-                                }, void 0, false, {
-                                    fileName: "src/index.js",
-                                    lineNumber: 52,
-                                    columnNumber: 25
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/index.js",
-                            lineNumber: 44,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
+                    lg: 8,
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_signthingsDefault.default, {
+                    }, void 0, false, {
+                        fileName: "src/index.js",
+                        lineNumber: 14,
+                        columnNumber: 29
+                    }, undefined)
+                }, void 0, false, {
                     fileName: "src/index.js",
-                    lineNumber: 31,
+                    lineNumber: 14,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/index.js",
-            lineNumber: 28,
+            lineNumber: 10,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/index.js",
-        lineNumber: 27,
+        lineNumber: 9,
         columnNumber: 10
     }, undefined));
 };
-_s(CryptoTool, "6Ii12jE3MU1W3eBI4M/1Xoq8Dhs=");
-_c = CryptoTool;
-const Main = (props)=>{
-    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
-        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
-            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
-                lg: 4,
-                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(CryptoTool, {
-                }, void 0, false, {
-                    fileName: "src/index.js",
-                    lineNumber: 63,
-                    columnNumber: 21
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/index.js",
-                lineNumber: 62,
-                columnNumber: 17
-            }, undefined)
-        }, void 0, false, {
-            fileName: "src/index.js",
-            lineNumber: 61,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/index.js",
-        lineNumber: 60,
-        columnNumber: 10
-    }, undefined));
-};
-_c1 = Main;
+_c = Main;
 _reactDomDefault.default.render(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(Main, {
 }, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 69,
+    lineNumber: 19,
     columnNumber: 17
 }, undefined), document.getElementById('app'));
-var _c, _c1;
-$RefreshReg$(_c, "CryptoTool");
-$RefreshReg$(_c1, "Main");
+var _c;
+$RefreshReg$(_c, "Main");
 
   $parcel$ReactRefreshHelpers$20e5.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","regenerator-runtime":"dXNgZ","react":"21dqq","react-dom":"j6uA9","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","crypto":"hagNj"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","regenerator-runtime":"dXNgZ","react":"21dqq","react-dom":"j6uA9","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./elements/signthings":"hs8lp","./elements/randomstringtool":"6wv1n"}],"iTorj":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-dev-runtime.development.js');
 
@@ -37062,321 +36907,194 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"hagNj":[function(require,module,exports) {
-'use strict';
-exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = require('randombytes');
-exports.createHash = exports.Hash = require('create-hash');
-exports.createHmac = exports.Hmac = require('create-hmac');
-var algos = require('browserify-sign/algos');
-var algoKeys = Object.keys(algos);
-var hashes = [
-    'sha1',
-    'sha224',
-    'sha256',
-    'sha384',
-    'sha512',
-    'md5',
-    'rmd160'
-].concat(algoKeys);
-exports.getHashes = function() {
-    return hashes;
-};
-var p = require('pbkdf2');
-exports.pbkdf2 = p.pbkdf2;
-exports.pbkdf2Sync = p.pbkdf2Sync;
-var aes = require('browserify-cipher');
-exports.Cipher = aes.Cipher;
-exports.createCipher = aes.createCipher;
-exports.Cipheriv = aes.Cipheriv;
-exports.createCipheriv = aes.createCipheriv;
-exports.Decipher = aes.Decipher;
-exports.createDecipher = aes.createDecipher;
-exports.Decipheriv = aes.Decipheriv;
-exports.createDecipheriv = aes.createDecipheriv;
-exports.getCiphers = aes.getCiphers;
-exports.listCiphers = aes.listCiphers;
-var dh = require('diffie-hellman');
-exports.DiffieHellmanGroup = dh.DiffieHellmanGroup;
-exports.createDiffieHellmanGroup = dh.createDiffieHellmanGroup;
-exports.getDiffieHellman = dh.getDiffieHellman;
-exports.createDiffieHellman = dh.createDiffieHellman;
-exports.DiffieHellman = dh.DiffieHellman;
-var sign = require('browserify-sign');
-exports.createSign = sign.createSign;
-exports.Sign = sign.Sign;
-exports.createVerify = sign.createVerify;
-exports.Verify = sign.Verify;
-exports.createECDH = require('create-ecdh');
-var publicEncrypt = require('public-encrypt');
-exports.publicEncrypt = publicEncrypt.publicEncrypt;
-exports.privateEncrypt = publicEncrypt.privateEncrypt;
-exports.publicDecrypt = publicEncrypt.publicDecrypt;
-exports.privateDecrypt = publicEncrypt.privateDecrypt;
-// the least I can do is make error messages for the rest of the node.js/crypto api.
-// ;[
-//   'createCredentials'
-// ].forEach(function (name) {
-//   exports[name] = function () {
-//     throw new Error([
-//       'sorry, ' + name + ' is not implemented yet',
-//       'we accept pull requests',
-//       'https://github.com/crypto-browserify/crypto-browserify'
-//     ].join('\n'))
-//   }
-// })
-var rf = require('randomfill');
-exports.randomFill = rf.randomFill;
-exports.randomFillSync = rf.randomFillSync;
-exports.createCredentials = function() {
-    throw new Error([
-        'sorry, createCredentials is not implemented yet',
-        'we accept pull requests',
-        'https://github.com/crypto-browserify/crypto-browserify'
-    ].join('\n'));
-};
-exports.constants = {
-    'DH_CHECK_P_NOT_SAFE_PRIME': 2,
-    'DH_CHECK_P_NOT_PRIME': 1,
-    'DH_UNABLE_TO_CHECK_GENERATOR': 4,
-    'DH_NOT_SUITABLE_GENERATOR': 8,
-    'NPN_ENABLED': 1,
-    'ALPN_ENABLED': 1,
-    'RSA_PKCS1_PADDING': 1,
-    'RSA_SSLV23_PADDING': 2,
-    'RSA_NO_PADDING': 3,
-    'RSA_PKCS1_OAEP_PADDING': 4,
-    'RSA_X931_PADDING': 5,
-    'RSA_PKCS1_PSS_PADDING': 6,
-    'POINT_CONVERSION_COMPRESSED': 2,
-    'POINT_CONVERSION_UNCOMPRESSED': 4,
-    'POINT_CONVERSION_HYBRID': 6
-};
+},{"react-refresh/runtime":"786KC"}],"hs8lp":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$bde5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$bde5.prelude(module);
 
-},{"randombytes":"8hjhE","create-hash":"2WyL8","create-hmac":"k1utz","browserify-sign/algos":"busIB","pbkdf2":"g38Hg","browserify-cipher":"d4idn","diffie-hellman":"hwD3y","browserify-sign":"jbRNy","create-ecdh":"9Rcg1","public-encrypt":"h9Rdh","randomfill":"k3tsT"}],"8hjhE":[function(require,module,exports) {
-'use strict';
-var process = require("process");
-var global = arguments[3];
-// limit of Crypto.getRandomValues()
-// https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
-var MAX_BYTES = 65536;
-// Node supports requesting up to this number of bytes
-// https://github.com/nodejs/node/blob/master/lib/internal/crypto/random.js#L48
-var MAX_UINT32 = 4294967295;
-function oldBrowser() {
-    throw new Error('Secure random number generation is not supported by this browser.\nUse Chrome, Firefox or Internet Explorer 11');
-}
-var Buffer = require('safe-buffer').Buffer;
-var crypto = global.crypto || global.msCrypto;
-if (crypto && crypto.getRandomValues) module.exports = randomBytes;
-else module.exports = oldBrowser;
-function randomBytes(size, cb) {
-    // phantomjs needs to throw
-    if (size > MAX_UINT32) throw new RangeError('requested too many random bytes');
-    var bytes = Buffer.allocUnsafe(size);
-    if (size > 0) {
-        if (size > MAX_BYTES) // can do at once see https://developer.mozilla.org/en-US/docs/Web/API/window.crypto.getRandomValues
-        for(var generated = 0; generated < size; generated += MAX_BYTES)// buffer.slice automatically checks if the end is past the end of
-        // the buffer so we don't have to here
-        crypto.getRandomValues(bytes.slice(generated, generated + MAX_BYTES));
-        else crypto.getRandomValues(bytes);
-    }
-    if (typeof cb === 'function') return process.nextTick(function() {
-        cb(null, bytes);
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+var _crypto = require("crypto");
+var _cryptoDefault = parcelHelpers.interopDefault(_crypto);
+var Buffer = require("buffer").Buffer;
+var _s = $RefreshSig$();
+const SignThings = (props)=>{
+    _s();
+    const [signingKey, setSigningKey] = _react.useState({
+        priv: null,
+        pub: null
     });
-    return bytes;
-}
+    const [signingText, setSigningText] = _react.useState({
+        priv: "",
+        pub: ""
+    });
+    const BEGIN_PRIV_KEY = "-----BEGIN PRIVATE KEY-----\n";
+    const END_PRIV_KEY = "\n-----END PRIVATE KEY-----";
+    _react.useEffect(()=>{
+        regenerateKeys();
+        return;
+    }, []);
+    const regenerateKeys = ()=>{
+        window.crypto.subtle.generateKey({
+            name: 'ECDSA',
+            namedCurve: 'P-384'
+        }, true, [
+            'sign',
+            'verify'
+        ]).then((keys)=>{
+            window.crypto.subtle.exportKey('pkcs8', keys.privateKey).then((pem)=>{
+                setSigningKey({
+                    ...signingKey,
+                    priv: pem
+                });
+                let buffer = Buffer.from(pem);
+                setSigningText({
+                    ...signingText,
+                    priv: BEGIN_PRIV_KEY + Buffer.from(buffer).toString('base64') + END_PRIV_KEY
+                });
+            });
+            window.crypto.subtle.exportKey('spki', keys.publicKey).then((pub)=>{
+                setSigningKey({
+                    ...signingKey,
+                    pub: pub
+                });
+            });
+        });
+    };
+    const clickRegenerateKeys = (e)=>{
+        regenerateKeys();
+    };
+    const clickDownloadKey = (e)=>{
+        let hashy = _cryptoDefault.default.createHash('sha1');
+        _cryptoDefault.default.randomBytes(4, (error, buffer)=>{
+            let hash1 = hashy.update(buffer, 'utf8');
+            let sha1ID = hash1.digest().slice(0, 4).toString('hex');
+        /**
+       * TODO : figure out how to compel download of pem string 
+       */ });
+    };
+    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Stack, {
+        direction: "vertical",
+        gap: 5,
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
+            style: {
+                padding: '20px'
+            },
+            children: [
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
+                    children: "signing things."
+                }, void 0, false, {
+                    fileName: "src/elements/signthings.js",
+                    lineNumber: 62,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Stack, {
+                    direction: "vertical",
+                    gap: 5,
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
+                            controlId: "signinForm.privateKeyInput",
+                            children: [
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
+                                    children: "private key (PEM)"
+                                }, void 0, false, {
+                                    fileName: "src/elements/signthings.js",
+                                    lineNumber: 66,
+                                    columnNumber: 29
+                                }, undefined),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
+                                    disabled: true,
+                                    as: "textarea",
+                                    value: signingText.priv,
+                                    style: {
+                                        minHeight: '200px'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "src/elements/signthings.js",
+                                    lineNumber: 67,
+                                    columnNumber: 29
+                                }, undefined),
+                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Text, {
+                                    muted: true,
+                                    children: "this is a secret. download it to a file DO NOT lose it."
+                                }, void 0, false, {
+                                    fileName: "src/elements/signthings.js",
+                                    lineNumber: 70,
+                                    columnNumber: 29
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/elements/signthings.js",
+                            lineNumber: 65,
+                            columnNumber: 25
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/elements/signthings.js",
+                        lineNumber: 64,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/elements/signthings.js",
+                    lineNumber: 63,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.ButtonGroup, {
+                    "aria-label": "buttons and stuff",
+                    children: [
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                            onClick: clickRegenerateKeys,
+                            variant: "secondary",
+                            children: "regenerate!"
+                        }, void 0, false, {
+                            fileName: "src/elements/signthings.js",
+                            lineNumber: 77,
+                            columnNumber: 21
+                        }, undefined),
+                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                            onClick: clickDownloadKey,
+                            variant: "primary",
+                            children: "download"
+                        }, void 0, false, {
+                            fileName: "src/elements/signthings.js",
+                            lineNumber: 78,
+                            columnNumber: 21
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/elements/signthings.js",
+                    lineNumber: 76,
+                    columnNumber: 17
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/elements/signthings.js",
+            lineNumber: 59,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/elements/signthings.js",
+        lineNumber: 58,
+        columnNumber: 10
+    }, undefined));
+};
+_s(SignThings, "xceIQjYhN53Yr012zK9UQI4b6js=");
+_c = SignThings;
+exports.default = SignThings;
+var _c;
+$RefreshReg$(_c, "SignThings");
 
-},{"process":"d5jf4","safe-buffer":"eW7r9"}],"d5jf4":[function(require,module,exports) {
-// shim for using process in browser
-var process = module.exports = {
-};
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-var cachedSetTimeout;
-var cachedClearTimeout;
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
+  $parcel$ReactRefreshHelpers$bde5.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
 }
-function defaultClearTimeout() {
-    throw new Error('clearTimeout has not been defined');
-}
-(function() {
-    try {
-        if (typeof setTimeout === 'function') cachedSetTimeout = setTimeout;
-        else cachedSetTimeout = defaultSetTimout;
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') cachedClearTimeout = clearTimeout;
-        else cachedClearTimeout = defaultClearTimeout;
-    } catch (e1) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-})();
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) //normal enviroments in sane situations
-    return setTimeout(fun, 0);
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch (e) {
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch (e) {
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) //normal enviroments in sane situations
-    return clearTimeout(marker);
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e) {
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e) {
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) return;
-    draining = false;
-    if (currentQueue.length) queue = currentQueue.concat(queue);
-    else queueIndex = -1;
-    if (queue.length) drainQueue();
-}
-function drainQueue() {
-    if (draining) return;
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-    var len = queue.length;
-    while(len){
-        currentQueue = queue;
-        queue = [];
-        while(++queueIndex < len)if (currentQueue) currentQueue[queueIndex].run();
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-process.nextTick = function(fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) for(var i = 1; i < arguments.length; i++)args[i - 1] = arguments[i];
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) runTimeout(drainQueue);
-};
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function() {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {
-};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {
-};
-function noop() {
-}
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-process.listeners = function(name) {
-    return [];
-};
-process.binding = function(name) {
-    throw new Error('process.binding is not supported');
-};
-process.cwd = function() {
-    return '/';
-};
-process.chdir = function(dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() {
-    return 0;
-};
-
-},{}],"eW7r9":[function(require,module,exports) {
-/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */ /* eslint-disable node/no-deprecated-api */ var buffer = require('buffer');
-var Buffer = buffer.Buffer;
-// alternative to using Object.keys for old browsers
-function copyProps(src, dst) {
-    for(var key in src)dst[key] = src[key];
-}
-if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow) module.exports = buffer;
-else {
-    // Copy properties from require('buffer')
-    copyProps(buffer, exports);
-    exports.Buffer = SafeBuffer;
-}
-function SafeBuffer(arg, encodingOrOffset, length) {
-    return Buffer(arg, encodingOrOffset, length);
-}
-SafeBuffer.prototype = Object.create(Buffer.prototype);
-// Copy static methods from Buffer
-copyProps(Buffer, SafeBuffer);
-SafeBuffer.from = function(arg, encodingOrOffset, length) {
-    if (typeof arg === 'number') throw new TypeError('Argument must not be a number');
-    return Buffer(arg, encodingOrOffset, length);
-};
-SafeBuffer.alloc = function(size, fill, encoding) {
-    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
-    var buf = Buffer(size);
-    if (fill !== undefined) {
-        if (typeof encoding === 'string') buf.fill(fill, encoding);
-        else buf.fill(fill);
-    } else buf.fill(0);
-    return buf;
-};
-SafeBuffer.allocUnsafe = function(size) {
-    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
-    return Buffer(size);
-};
-SafeBuffer.allocUnsafeSlow = function(size) {
-    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
-    return buffer.SlowBuffer(size);
-};
-
-},{"buffer":"fCgem"}],"fCgem":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","buffer":"fCgem","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","react-bootstrap":"3AD9A","crypto":"hagNj"}],"fCgem":[function(require,module,exports) {
 /*!
  * The buffer module from node.js, for the browser.
  *
@@ -38788,7 +38506,321 @@ module.exports = Array.isArray || function(arr) {
     return toString.call(arr) == '[object Array]';
 };
 
-},{}],"2WyL8":[function(require,module,exports) {
+},{}],"hagNj":[function(require,module,exports) {
+'use strict';
+exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = require('randombytes');
+exports.createHash = exports.Hash = require('create-hash');
+exports.createHmac = exports.Hmac = require('create-hmac');
+var algos = require('browserify-sign/algos');
+var algoKeys = Object.keys(algos);
+var hashes = [
+    'sha1',
+    'sha224',
+    'sha256',
+    'sha384',
+    'sha512',
+    'md5',
+    'rmd160'
+].concat(algoKeys);
+exports.getHashes = function() {
+    return hashes;
+};
+var p = require('pbkdf2');
+exports.pbkdf2 = p.pbkdf2;
+exports.pbkdf2Sync = p.pbkdf2Sync;
+var aes = require('browserify-cipher');
+exports.Cipher = aes.Cipher;
+exports.createCipher = aes.createCipher;
+exports.Cipheriv = aes.Cipheriv;
+exports.createCipheriv = aes.createCipheriv;
+exports.Decipher = aes.Decipher;
+exports.createDecipher = aes.createDecipher;
+exports.Decipheriv = aes.Decipheriv;
+exports.createDecipheriv = aes.createDecipheriv;
+exports.getCiphers = aes.getCiphers;
+exports.listCiphers = aes.listCiphers;
+var dh = require('diffie-hellman');
+exports.DiffieHellmanGroup = dh.DiffieHellmanGroup;
+exports.createDiffieHellmanGroup = dh.createDiffieHellmanGroup;
+exports.getDiffieHellman = dh.getDiffieHellman;
+exports.createDiffieHellman = dh.createDiffieHellman;
+exports.DiffieHellman = dh.DiffieHellman;
+var sign = require('browserify-sign');
+exports.createSign = sign.createSign;
+exports.Sign = sign.Sign;
+exports.createVerify = sign.createVerify;
+exports.Verify = sign.Verify;
+exports.createECDH = require('create-ecdh');
+var publicEncrypt = require('public-encrypt');
+exports.publicEncrypt = publicEncrypt.publicEncrypt;
+exports.privateEncrypt = publicEncrypt.privateEncrypt;
+exports.publicDecrypt = publicEncrypt.publicDecrypt;
+exports.privateDecrypt = publicEncrypt.privateDecrypt;
+// the least I can do is make error messages for the rest of the node.js/crypto api.
+// ;[
+//   'createCredentials'
+// ].forEach(function (name) {
+//   exports[name] = function () {
+//     throw new Error([
+//       'sorry, ' + name + ' is not implemented yet',
+//       'we accept pull requests',
+//       'https://github.com/crypto-browserify/crypto-browserify'
+//     ].join('\n'))
+//   }
+// })
+var rf = require('randomfill');
+exports.randomFill = rf.randomFill;
+exports.randomFillSync = rf.randomFillSync;
+exports.createCredentials = function() {
+    throw new Error([
+        'sorry, createCredentials is not implemented yet',
+        'we accept pull requests',
+        'https://github.com/crypto-browserify/crypto-browserify'
+    ].join('\n'));
+};
+exports.constants = {
+    'DH_CHECK_P_NOT_SAFE_PRIME': 2,
+    'DH_CHECK_P_NOT_PRIME': 1,
+    'DH_UNABLE_TO_CHECK_GENERATOR': 4,
+    'DH_NOT_SUITABLE_GENERATOR': 8,
+    'NPN_ENABLED': 1,
+    'ALPN_ENABLED': 1,
+    'RSA_PKCS1_PADDING': 1,
+    'RSA_SSLV23_PADDING': 2,
+    'RSA_NO_PADDING': 3,
+    'RSA_PKCS1_OAEP_PADDING': 4,
+    'RSA_X931_PADDING': 5,
+    'RSA_PKCS1_PSS_PADDING': 6,
+    'POINT_CONVERSION_COMPRESSED': 2,
+    'POINT_CONVERSION_UNCOMPRESSED': 4,
+    'POINT_CONVERSION_HYBRID': 6
+};
+
+},{"randombytes":"8hjhE","create-hash":"2WyL8","create-hmac":"k1utz","browserify-sign/algos":"busIB","pbkdf2":"g38Hg","browserify-cipher":"d4idn","diffie-hellman":"hwD3y","browserify-sign":"jbRNy","create-ecdh":"9Rcg1","public-encrypt":"h9Rdh","randomfill":"k3tsT"}],"8hjhE":[function(require,module,exports) {
+'use strict';
+var global = arguments[3];
+var process = require("process");
+// limit of Crypto.getRandomValues()
+// https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
+var MAX_BYTES = 65536;
+// Node supports requesting up to this number of bytes
+// https://github.com/nodejs/node/blob/master/lib/internal/crypto/random.js#L48
+var MAX_UINT32 = 4294967295;
+function oldBrowser() {
+    throw new Error('Secure random number generation is not supported by this browser.\nUse Chrome, Firefox or Internet Explorer 11');
+}
+var Buffer = require('safe-buffer').Buffer;
+var crypto = global.crypto || global.msCrypto;
+if (crypto && crypto.getRandomValues) module.exports = randomBytes;
+else module.exports = oldBrowser;
+function randomBytes(size, cb) {
+    // phantomjs needs to throw
+    if (size > MAX_UINT32) throw new RangeError('requested too many random bytes');
+    var bytes = Buffer.allocUnsafe(size);
+    if (size > 0) {
+        if (size > MAX_BYTES) // can do at once see https://developer.mozilla.org/en-US/docs/Web/API/window.crypto.getRandomValues
+        for(var generated = 0; generated < size; generated += MAX_BYTES)// buffer.slice automatically checks if the end is past the end of
+        // the buffer so we don't have to here
+        crypto.getRandomValues(bytes.slice(generated, generated + MAX_BYTES));
+        else crypto.getRandomValues(bytes);
+    }
+    if (typeof cb === 'function') return process.nextTick(function() {
+        cb(null, bytes);
+    });
+    return bytes;
+}
+
+},{"process":"d5jf4","safe-buffer":"eW7r9"}],"d5jf4":[function(require,module,exports) {
+// shim for using process in browser
+var process = module.exports = {
+};
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+var cachedSetTimeout;
+var cachedClearTimeout;
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout() {
+    throw new Error('clearTimeout has not been defined');
+}
+(function() {
+    try {
+        if (typeof setTimeout === 'function') cachedSetTimeout = setTimeout;
+        else cachedSetTimeout = defaultSetTimout;
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') cachedClearTimeout = clearTimeout;
+        else cachedClearTimeout = defaultClearTimeout;
+    } catch (e1) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+})();
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) //normal enviroments in sane situations
+    return clearTimeout(marker);
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) return;
+    draining = false;
+    if (currentQueue.length) queue = currentQueue.concat(queue);
+    else queueIndex = -1;
+    if (queue.length) drainQueue();
+}
+function drainQueue() {
+    if (draining) return;
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+    var len = queue.length;
+    while(len){
+        currentQueue = queue;
+        queue = [];
+        while(++queueIndex < len)if (currentQueue) currentQueue[queueIndex].run();
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+process.nextTick = function(fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) for(var i = 1; i < arguments.length; i++)args[i - 1] = arguments[i];
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) runTimeout(drainQueue);
+};
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function() {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {
+};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {
+};
+function noop() {
+}
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+process.listeners = function(name) {
+    return [];
+};
+process.binding = function(name) {
+    throw new Error('process.binding is not supported');
+};
+process.cwd = function() {
+    return '/';
+};
+process.chdir = function(dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() {
+    return 0;
+};
+
+},{}],"eW7r9":[function(require,module,exports) {
+/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */ /* eslint-disable node/no-deprecated-api */ var buffer = require('buffer');
+var Buffer = buffer.Buffer;
+// alternative to using Object.keys for old browsers
+function copyProps(src, dst) {
+    for(var key in src)dst[key] = src[key];
+}
+if (Buffer.from && Buffer.alloc && Buffer.allocUnsafe && Buffer.allocUnsafeSlow) module.exports = buffer;
+else {
+    // Copy properties from require('buffer')
+    copyProps(buffer, exports);
+    exports.Buffer = SafeBuffer;
+}
+function SafeBuffer(arg, encodingOrOffset, length) {
+    return Buffer(arg, encodingOrOffset, length);
+}
+SafeBuffer.prototype = Object.create(Buffer.prototype);
+// Copy static methods from Buffer
+copyProps(Buffer, SafeBuffer);
+SafeBuffer.from = function(arg, encodingOrOffset, length) {
+    if (typeof arg === 'number') throw new TypeError('Argument must not be a number');
+    return Buffer(arg, encodingOrOffset, length);
+};
+SafeBuffer.alloc = function(size, fill, encoding) {
+    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
+    var buf = Buffer(size);
+    if (fill !== undefined) {
+        if (typeof encoding === 'string') buf.fill(fill, encoding);
+        else buf.fill(fill);
+    } else buf.fill(0);
+    return buf;
+};
+SafeBuffer.allocUnsafe = function(size) {
+    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
+    return Buffer(size);
+};
+SafeBuffer.allocUnsafeSlow = function(size) {
+    if (typeof size !== 'number') throw new TypeError('Argument must be a number');
+    return buffer.SlowBuffer(size);
+};
+
+},{"buffer":"fCgem"}],"2WyL8":[function(require,module,exports) {
 'use strict';
 var inherits = require('inherits');
 var MD5 = require('md5.js');
@@ -39081,8 +39113,8 @@ exports.pipeline = require('./lib/internal/streams/pipeline.js');
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 'use strict';
-var process = require("process");
 var global = arguments[3];
+var process = require("process");
 module.exports = Readable;
 /*<replacement>*/ var Duplex;
 /*</replacement>*/ Readable.ReadableState = ReadableState;
@@ -40842,8 +40874,8 @@ Object.defineProperty(Duplex.prototype, 'destroyed', {
 // Implement an async ._write(chunk, encoding, cb), and it'll handle all
 // the drain event emission and buffering.
 'use strict';
-var global = arguments[3];
 var process = require("process");
+var global = arguments[3];
 module.exports = Writable;
 /* <replacement> */ function WriteReq(chunk, encoding, cb) {
     this.chunk = chunk;
@@ -74845,6 +74877,216 @@ function randomFillSync(buf, offset, size) {
     return actualFill(buf, offset, size);
 }
 
-},{"process":"d5jf4","safe-buffer":"eW7r9","randombytes":"8hjhE"}]},["kn9T2","7nZVA","8lqZg"], "8lqZg", "parcelRequire9237")
+},{"process":"d5jf4","safe-buffer":"eW7r9","randombytes":"8hjhE"}],"6wv1n":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$41cd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$41cd.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+var _crypto = require("crypto");
+var _cryptoDefault = parcelHelpers.interopDefault(_crypto);
+var _s = $RefreshSig$();
+const RandomStringTool = (props)=>{
+    _s();
+    const [randomString, setRandomString] = _react.useState();
+    const [byteLength, setByteLength] = _react.useState(4);
+    _react.useEffect(()=>{
+        _cryptoDefault.default.randomBytes(byteLength, (err, buf)=>{
+            setRandomString(buf.toString('hex'));
+        });
+    }, []);
+    const clickGenRandomString = (e)=>{
+        _cryptoDefault.default.randomBytes(byteLength, (err, buf)=>{
+            setRandomString(buf.toString('hex'));
+        });
+    };
+    const onSelectBytLength = (e)=>{
+        setByteLength(parseInt(e.target.value));
+    };
+    return(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Stack, {
+        direction: "horizontal",
+        gap: 5,
+        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
+                children: [
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
+                        children: "random string generator"
+                    }, void 0, false, {
+                        fileName: "src/elements/randomstringtool.js",
+                        lineNumber: 27,
+                        columnNumber: 21
+                    }, undefined),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Stack, {
+                        direction: "vertical",
+                        gap: 5,
+                        children: [
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Table, {
+                                striped: true,
+                                hover: true,
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("tbody", {
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("tr", {
+                                            children: [
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("th", {
+                                                    children: "byte len."
+                                                }, void 0, false, {
+                                                    fileName: "src/elements/randomstringtool.js",
+                                                    lineNumber: 33,
+                                                    columnNumber: 37
+                                                }, undefined),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("td", {
+                                                    children: byteLength
+                                                }, void 0, false, {
+                                                    fileName: "src/elements/randomstringtool.js",
+                                                    lineNumber: 34,
+                                                    columnNumber: 37
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/elements/randomstringtool.js",
+                                            lineNumber: 32,
+                                            columnNumber: 33
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV("tr", {
+                                            children: [
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("th", {
+                                                    children: "random str."
+                                                }, void 0, false, {
+                                                    fileName: "src/elements/randomstringtool.js",
+                                                    lineNumber: 37,
+                                                    columnNumber: 37
+                                                }, undefined),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("td", {
+                                                    children: randomString
+                                                }, void 0, false, {
+                                                    fileName: "src/elements/randomstringtool.js",
+                                                    lineNumber: 38,
+                                                    columnNumber: 37
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/elements/randomstringtool.js",
+                                            lineNumber: 36,
+                                            columnNumber: 33
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/elements/randomstringtool.js",
+                                    lineNumber: 31,
+                                    columnNumber: 29
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/elements/randomstringtool.js",
+                                lineNumber: 30,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
+                                children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
+                                    children: [
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Label, {
+                                            htmlFor: "selectByteLength"
+                                        }, void 0, false, {
+                                            fileName: "src/elements/randomstringtool.js",
+                                            lineNumber: 44,
+                                            columnNumber: 33
+                                        }, undefined),
+                                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Select, {
+                                            id: "selectByteLength",
+                                            onChange: onSelectBytLength,
+                                            "aria-label": "# bytes",
+                                            children: [
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("option", {
+                                                    value: 4,
+                                                    children: "4"
+                                                }, void 0, false, {
+                                                    fileName: "src/elements/randomstringtool.js",
+                                                    lineNumber: 46,
+                                                    columnNumber: 37
+                                                }, undefined),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("option", {
+                                                    value: 8,
+                                                    children: "8"
+                                                }, void 0, false, {
+                                                    fileName: "src/elements/randomstringtool.js",
+                                                    lineNumber: 47,
+                                                    columnNumber: 37
+                                                }, undefined),
+                                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV("option", {
+                                                    value: 16,
+                                                    children: "16"
+                                                }, void 0, false, {
+                                                    fileName: "src/elements/randomstringtool.js",
+                                                    lineNumber: 48,
+                                                    columnNumber: 37
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/elements/randomstringtool.js",
+                                            lineNumber: 45,
+                                            columnNumber: 33
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/elements/randomstringtool.js",
+                                    lineNumber: 43,
+                                    columnNumber: 29
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/elements/randomstringtool.js",
+                                lineNumber: 42,
+                                columnNumber: 25
+                            }, undefined),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                variant: "primary",
+                                type: "button",
+                                onClick: clickGenRandomString,
+                                children: "Random String"
+                            }, void 0, false, {
+                                fileName: "src/elements/randomstringtool.js",
+                                lineNumber: 52,
+                                columnNumber: 25
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/elements/randomstringtool.js",
+                        lineNumber: 29,
+                        columnNumber: 21
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/elements/randomstringtool.js",
+                lineNumber: 26,
+                columnNumber: 17
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/elements/randomstringtool.js",
+            lineNumber: 25,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/elements/randomstringtool.js",
+        lineNumber: 24,
+        columnNumber: 10
+    }, undefined));
+};
+_s(RandomStringTool, "6Ii12jE3MU1W3eBI4M/1Xoq8Dhs=");
+_c = RandomStringTool;
+exports.default = RandomStringTool;
+var _c;
+$RefreshReg$(_c, "RandomStringTool");
+
+  $parcel$ReactRefreshHelpers$41cd.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","crypto":"hagNj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["kn9T2","7nZVA","8lqZg"], "8lqZg", "parcelRequire9237")
 
 //# sourceMappingURL=index.975ef6c8.js.map
